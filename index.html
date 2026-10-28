@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f97316">
+  <title>DeliveryPro — Operations dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="DeliveryPro dashboard">
+        <span class="brand-mark">dp</span>
+        <span>delivery<span class="brand-light">pro</span><small>OPERATIONS</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#dashboard" data-page="dashboard"><span class="nav-icon">▦</span>Overview</a>
+        <a href="#orders" data-page="orders"><span class="nav-icon">▤</span>Orders <span class="nav-count" id="order-nav-count">0</span></a>
+        <a href="#tracking" data-page="tracking"><span class="nav-icon">⌖</span>Live tracking</a>
+        <a href="#restaurants" data-page="restaurants"><span class="nav-icon">♧</span>Restaurants</a>
+        <a href="#partners" data-page="partners"><span class="nav-icon">♙</span>Delivery partners</a>
+        <a href="#customers" data-page="customers"><span class="nav-icon">♧</span>Customers</a>
+        <a href="#payments" data-page="payments"><span class="nav-icon">▣</span>Payments</a>
+        <a href="#reviews" data-page="reviews"><span class="nav-icon">☆</span>Reviews</a>
+        <a href="#routes" data-page="routes"><span class="nav-icon">⌁</span>Route planner</a>
+        <a href="#reports" data-page="reports"><span class="nav-icon">▥</span>Reports</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>Need a hand?</strong>
+          <p>Our support team is here to help you.</p>
+          <button class="help-link" data-action="support">Chat with support <span>↗</span></button>
+        </div>
+        <button class="profile" id="profile">
+          <span class="avatar avatar-orange">AS</span>
+          <span class="profile-info"><strong id="profile-name">Alex Morgan</strong><small id="profile-role">Administrator</small></span>
+          <span class="profile-dots">···</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button menu-toggle" id="menu-toggle" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-divider">/</span><strong id="page-crumb">Overview</strong></div>
+        <div class="topbar-actions">
+          <div class="date-pill"><span>◷</span><span id="today-label"></span></div>
+          <button class="icon-button" data-action="dark-mode" aria-label="Toggle dark mode" title="Toggle dark mode">☾</button>
+          <button class="icon-button notification-button" data-action="notifications" aria-label="Notifications">♧<i></i></button>
+          <span class="topbar-divider"></span>
+          <button class="avatar avatar-orange user-avatar" data-action="account" aria-label="Account menu">AS</button>
+        </div>
+      </header>
+      <div class="content-wrap">
+        <div id="view" aria-live="polite"></div>
+      </div>
+      <footer class="footer">© 2026 DeliveryPro <span>Built for better deliveries.</span></footer>
+    </main>
+  </div>
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header"><div><span class="eyebrow">DELIVERYPRO</span><h2 id="modal-title">Add item</h2></div><button class="icon-button" data-action="close-modal" aria-label="Close">×</button></div>
+      <form id="modal-form"><div id="auth-modes" class="auth-modes" hidden><button type="button" data-action="account-mode" data-mode="login">Sign in</button><button type="button" data-action="account-mode" data-mode="register">Register</button></div><div id="modal-fields" class="modal-fields"></div><div class="modal-actions"><button type="button" class="button button-quiet" data-action="close-modal">Cancel</button><button type="submit" class="button button-primary" id="modal-submit">Save changes</button></div></form>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
